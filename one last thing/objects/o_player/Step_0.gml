@@ -20,12 +20,13 @@ else {walk_speed = 5;}
 vsp += grav;
 if (place_meeting(x,y + vsp,o_block)){while(!place_meeting(x,y + sign(vsp),o_block)){y+= sign(vsp);} vsp = 0;}
 y += vsp;
-if (place_meeting(x,y + 1,o_block) && (up)) {
-	vsp = -15;
-	jump_status = true;
-		if (jump_status == true){
-				
-		}
+jumps = jump_max;
+if (place_meeting(x,y + 1,o_block)){
+	jumps = jump_max;
+}
+if ((up) && jumps > 0){
+	jumps--;
+	vsp = -13;
 }
 #endregion
 #region //Animation
